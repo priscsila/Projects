@@ -1,67 +1,22 @@
-# Projects
-Actividades enfocadas en la formacion de Oracle y Alura LATAM
+Amigo Secreto - Juego del Proyecto
 
-let amigos = [];
+Bienvenido/a al mi proyecto Amigo Secreto, este proyecto va enfocado en crear una página para realizar la simulación de un
+sorteo. 
 
-function adicionarAmigo() {
-    const input = document.querySelector("input");
-    const nombre = input.value.trim();
-    
-    if (nombre === "") {
-        alert("Por favor, ingrese un nombre válido.");
-        return;
-    }
-    
-    if (amigos.includes(nombre)) {
-        alert("Este nombre ya ha sido agregado.");
-        return;
-    }
-    
-    amigos.push(nombre);
-    input.value = "";
-    actualizarLista();
-}
+//Tecnologías Utilizadas
 
-function actualizarLista() {
-    const lista = document.querySelector("#lista-amigos");
-    lista.innerHTML = "";
-    amigos.forEach(amigo => {
-        const li = document.createElement("li");
-        li.textContent = amigo;
-        lista.appendChild(li);
-    });
-}
+Este proyecto fue desarrollado utilizando:
 
-function sortearAmigo() {
-    if (amigos.length < 2) {
-        alert("Debe haber al menos dos participantes para realizar el sorteo.");
-        return;
-    }
-    
-    let asignaciones = {};
-    let disponibles = [...amigos];
-    
-    amigos.forEach(amigo => {
-        let posibles = disponibles.filter(a => a !== amigo);
-        if (posibles.length === 0) {
-            sortearAmigo();
-            return;
-        }
-        let elegido = posibles[Math.floor(Math.random() * posibles.length)];
-        asignaciones[amigo] = elegido;
-        disponibles = disponibles.filter(a => a !== elegido);
-    });
-    
-    mostrarResultados(asignaciones);
-}
+HTML5 📄
+CSS3 🎨
+JavaScript (ES6+) ⚡
+Git y GitHub 🐙
 
-function mostrarResultados(asignaciones) {
-    const resultado = document.querySelector("#resultado");
-    resultado.innerHTML = "";
-    
-    for (let amigo in asignaciones) {
-        const p = document.createElement("p");
-        p.textContent = `${amigo} -> ${asignaciones[amigo]}`;
-        resultado.appendChild(p);
-    }
-}
+🎯 Cómo lo uso?
+
+1. Abrir el archivo index.html en tu navegador favorito.
+2. Agregar los nombres de los participantes.
+3. Hacer clic en "Sortear amigo" y ver los resultados.
+
+¡Listo! Ya tenés tu sorteo de amigo secreto en segundos. 🎉
+
